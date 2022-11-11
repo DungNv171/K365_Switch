@@ -5,44 +5,31 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class AddLabelScreenObject extends BaseScreen {
     AndroidDriver driver;
-    String dynamicButtonByName = "//android.widget.ImageView[@content-desc='%s']";
-    String buttonNameTextbox = "//android.view.View[@content-desc=\"Cài đặt nút bấm \n" +
-            "Tên nút bấm\"]/android.view.View/android.widget.EditText";
-    String closePopup = "//android.view.View[@content-desc=\"Cài đặt nút bấm \n" +
-            "Tên nút bấm\"]/android.widget.ImageView[1]";
 
-    String addLabel = "//android.widget.ImageView[@content-desc=\"Gắn nhãn\"]";
+    String dynamicLabelByName = "//android.view.View[@content-desc='%s']";
+    String saveButton = "//android.view.View[@content-desc=\"Lưu\"]";
+    String searchTextbox = "//android.widget.ImageView[@text='Tìm kiếm']";
 
     public AddLabelScreenObject(AndroidDriver driver){
         this.driver = driver;
     }
 
-    public void pressToButton(String buttonName){
-        pressToElement(driver,dynamicButtonByName,buttonName);
+    public void chooseLabel(String labelName){
+        clickToElement(driver,dynamicLabelByName,labelName);
     }
 
-    public void enterToRename(String valueText){
-        clickToElement(driver,buttonNameTextbox);
-        sendKeyToElement(driver,buttonNameTextbox,valueText);
-        pressKeyEnterInKeyboard(driver);
+    public void clickSaveButton(){
+        clickToElement(driver,saveButton);
     }
 
-    public void closePopup(){
-        clickToElement(driver,closePopup);
+    public void searchLabel(String searchValue){
+        clickToElement(driver,searchTextbox);
+        sendKeyToElement(driver,searchTextbox,searchValue);
     }
 
-    public void renameButton(String currentName, String expectedName){
-        pressToButton(currentName);
-        enterToRename(expectedName);
-        closePopup();
+    public boolean isLabelDisplayed(String labelName){
+        return isElementDisplayed(driver,dynamicLabelByName,labelName);
     }
 
-    public boolean isButtonNameDisplayed(String buttonName){
-        return isElementDisplayed(driver,dynamicButtonByName,buttonName);
-    }
-
-    public void clickToAddLabel(){
-        clickToElement(driver,addLabel);
-    }
 
 }

@@ -12,17 +12,22 @@ import org.testng.annotations.AfterTest;
 import screenObjects.ChooseCountryScreenObject;
 import screenObjects.HomeScreenObject;
 import screenObjects.LoginScreenObject;
+import testdata.UserData.LoginData;
 
 public class Login extends BaseTest {
     private AndroidDriver driver;
     private LoginScreenObject loginScreen;
     private ChooseCountryScreenObject chooseCountryScreen;
     private HomeScreenObject homeScreen;
+    private String phoneNumber, password;
 
     @BeforeTest
     public void beforeTest() throws MalformedURLException {
         driver = getDriver();
         chooseCountryScreen = ScreenGeneratorManager.getChooseCountryScreen(driver);
+
+        phoneNumber = LoginData.phoneNumber;
+        password = LoginData.password;
     }
 
     @Test
@@ -35,15 +40,15 @@ public class Login extends BaseTest {
 
     @Test
     public void TC_02_Login_With_Empty_Password() {
-        loginScreen.enterToPhoneNumberTextbox("0378608231");
+        loginScreen.enterToPhoneNumberTextbox(phoneNumber);
         homeScreen = loginScreen.clickToLoginButton();
         Assert.assertTrue(loginScreen.isErrorPasswordTextboxDisplayed());
     }
 
     @Test
     public void TC_03_Login_Success() {
-        loginScreen.enterToPhoneNumberTextbox("0378608231");
-        loginScreen.enterToPasswordTextbox("aqws1234");
+        loginScreen.enterToPhoneNumberTextbox(phoneNumber);
+        loginScreen.enterToPasswordTextbox(password);
         homeScreen = loginScreen.clickToLoginButton();
         Assert.assertTrue(homeScreen.isHomeScreenDisplayed());
     }

@@ -42,8 +42,9 @@ public class SettingScreenObject extends BaseScreen {
         return isElementDisplayed(driver,dynamicButtonByName,buttonName);
     }
 
-    public void clickToAddLabel(){
+    public AddLabelScreenObject clickToAddLabel(){
         clickToElement(driver,addLabel);
+        return ScreenGeneratorManager.getAddLabelScreen(driver);
     }
 
 }
