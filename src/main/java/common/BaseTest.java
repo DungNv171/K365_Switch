@@ -15,7 +15,7 @@ public class BaseTest {
         desiredCapabilities.setCapability("appium:appPackage", "com.karofi.k365.iotp.mobile.dev");
         desiredCapabilities.setCapability("appium:appActivity", "com.karofi.k365.iotp.mobile.dev.MainActivity");
         desiredCapabilities.setCapability("platformName", "Android");
-        desiredCapabilities.setCapability("appium:udid", "R58R50B235A");
+        desiredCapabilities.setCapability("appium:udid", "9PKNWG755XBQ65NR");
         desiredCapabilities.setCapability("appium:automationName", "Appium");
         desiredCapabilities.setCapability("appium:ensureWebviewsHavePages", true);
         desiredCapabilities.setCapability("appium:nativeWebScreenshot", true);
@@ -26,7 +26,15 @@ public class BaseTest {
         URL remoteUrl = new URL("http://127.0.0.1:4723/wd/hub");
 
         driver = new AndroidDriver(remoteUrl, desiredCapabilities);
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         return driver;
+    }
+
+    public void sleepInSecond(long second){
+        try {
+            Thread.sleep(second * 1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

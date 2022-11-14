@@ -23,4 +23,9 @@ public class ScreenGeneratorManager {
     public static AddLabelScreenObject getAddLabelScreen(AndroidDriver driver) {
         return new AddLabelScreenObject(driver);
     }
+
+    public static DetailSettingScreenObject getDetailSettingScreen(AndroidDriver driver) {
+        return new DetailSettingScreenObject(driver);
+    }
+
 }

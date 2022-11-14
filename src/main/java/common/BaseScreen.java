@@ -3,11 +3,14 @@ package common;
 import io.appium.java_client.AppiumFluentWait;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static io.appium.java_client.touch.WaitOptions.waitOptions;
@@ -51,11 +54,19 @@ public class BaseScreen {
     }
 
     public boolean isElementDisplayed(AndroidDriver driver, String locatorType){
-        return getWebElement(driver,locatorType).isDisplayed();
+        try {
+            return getWebElement(driver,locatorType).isDisplayed();
+        } catch (NoSuchElementException e){
+            return false;
+        }
     }
 
     public boolean isElementDisplayed(AndroidDriver driver, String locatorType, String... dynamicValue){
-        return getWebElement(driver,getDynamicLocator(locatorType,dynamicValue)).isDisplayed();
+        try {
+            return getWebElement(driver,locatorType,dynamicValue).isDisplayed();
+        } catch (NoSuchElementException e){
+            return false;
+        }
     }
 
     public String getElementText(AndroidDriver driver, String locatorType){
@@ -84,4 +95,7 @@ public class BaseScreen {
         driver.pressKey(new KeyEvent(AndroidKey.ENTER));
     }
 
+    public void scrollAndClick(AndroidDriver driver){
+        
+    }
 }

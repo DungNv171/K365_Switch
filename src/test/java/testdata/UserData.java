@@ -7,9 +7,10 @@ public class UserData {
     }
 
     public class SwitchData{
-        public static final String switch1ButtonName = "";
+//        Switch-Hiz-Beta 1 button
+        public static final String switch1ButtonName = "1 nút";
         public static final String switch4ButtonName = "";
-        public static final String s1BtnName = "";
+        public static final String s1BtnName = "den pk";
         public static final String s4Btn1Name = "";
         public static final String s4Btn2Name = "";
         public static final String s4Btn3Name = "";
