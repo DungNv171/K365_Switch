@@ -28,4 +28,20 @@ public class ScreenGeneratorManager {
         return new DetailSettingScreenObject(driver);
     }
 
+    public static AddRoomScreenObject getAddRoomScreen(AndroidDriver driver) {
+        return new AddRoomScreenObject(driver);
+    }
+
+    public static HouseManageScreenObject getHouseManageScreen(AndroidDriver driver) {
+        return new HouseManageScreenObject(driver);
+    }
+
+    public static PersonalScreenObject getPersonalScreen(AndroidDriver driver) {
+        return new PersonalScreenObject(driver);
+    }
+
+    public static RoomManageScreenObject getRoomManageScreen(AndroidDriver driver) {
+        return new RoomManageScreenObject(driver);
+    }
+
 }

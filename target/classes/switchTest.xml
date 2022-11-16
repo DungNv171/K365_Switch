@@ -7,7 +7,8 @@
 <!--            <class name="com.karofi.Login" />-->
 <!--            <class name="com.karofi.Button_Setting" />-->
 <!--            <class name="com.karofi.Add_Favourite" />-->
-            <class name="com.karofi.Remove_Switch" />
+            <class name="com.karofi.Add_Room" />
+<!--            <class name="com.karofi.Remove_Switch" />-->
         </classes>
     </test>
 

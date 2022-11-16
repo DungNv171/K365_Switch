@@ -95,7 +95,7 @@ public class BaseScreen {
         driver.pressKey(new KeyEvent(AndroidKey.ENTER));
     }
 
-    public void scrollAndClick(AndroidDriver driver){
-        
+    public void scrollAndClick(AndroidDriver driver, String locater){
+        new TouchActions(driver).scroll(getWebElement(driver,locater), 10, 100).perform();
     }
 }

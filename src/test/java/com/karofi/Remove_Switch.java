@@ -19,7 +19,6 @@ public class Remove_Switch extends BaseTest {
     private ChooseCountryScreenObject chooseCountryScreen;
     private HomeScreenObject homeScreen;
     private SettingScreenObject settingScreen;
-    private DetailSettingScreenObject detailSettingScreen;
     private String phoneNumber, password, switch1ButtonName;
 
     @BeforeTest
@@ -27,9 +26,9 @@ public class Remove_Switch extends BaseTest {
         driver = getDriver();
         chooseCountryScreen = ScreenGeneratorManager.getChooseCountryScreen(driver);
 
-        phoneNumber = LoginData.phoneNumber;
-        password = LoginData.password;
-        switch1ButtonName = SwitchData.switch1ButtonName;
+        phoneNumber = LoginData.PHONE_NUMBER;
+        password = LoginData.PASSWORD;
+        switch1ButtonName = SwitchData.SWITCH_1_BUTTON_NAME;
 
         //Pre-Conditions
         loginScreen = chooseCountryScreen.clickToContinueButton();

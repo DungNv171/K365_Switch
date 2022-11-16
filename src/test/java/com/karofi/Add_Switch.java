@@ -27,9 +27,9 @@ public class Add_Switch extends BaseTest {
         driver = getDriver();
         chooseCountryScreen = ScreenGeneratorManager.getChooseCountryScreen(driver);
 
-        phoneNumber = LoginData.phoneNumber;
-        password = LoginData.password;
-        switch1ButtonName = SwitchData.switch1ButtonName;
+        phoneNumber = LoginData.PHONE_NUMBER;
+        password = LoginData.PASSWORD;
+        switch1ButtonName = SwitchData.SWITCH_1_BUTTON_NAME;
 
         //Pre-Conditions
         loginScreen = chooseCountryScreen.clickToContinueButton();

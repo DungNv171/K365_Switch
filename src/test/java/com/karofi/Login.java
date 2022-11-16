@@ -26,8 +26,8 @@ public class Login extends BaseTest {
         driver = getDriver();
         chooseCountryScreen = ScreenGeneratorManager.getChooseCountryScreen(driver);
 
-        phoneNumber = LoginData.phoneNumber;
-        password = LoginData.password;
+        phoneNumber = LoginData.PHONE_NUMBER;
+        password = LoginData.PASSWORD;
     }
 
     @Test

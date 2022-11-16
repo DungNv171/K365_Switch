@@ -27,10 +27,10 @@ public class Button_Setting extends BaseTest {
         driver = getDriver();
         chooseCountryScreen = ScreenGeneratorManager.getChooseCountryScreen(driver);
 
-        phoneNumber = LoginData.phoneNumber;
-        password = LoginData.password;
-        switch1ButtonName = SwitchData.switch1ButtonName;
-        s1BtnName = SwitchData.s1BtnName;
+        phoneNumber = LoginData.PHONE_NUMBER;
+        password = LoginData.PASSWORD;
+        switch1ButtonName = SwitchData.SWITCH_1_BUTTON_NAME;
+        s1BtnName = SwitchData.S1_BTN_NAME;
 
 
         //Pre-Conditions
@@ -42,21 +42,21 @@ public class Button_Setting extends BaseTest {
         settingScreen = homeScreen.chooseDevice(switch1ButtonName);
     }
     @Test
-    public void Rename_Switch_01_With_15_Charaters(){
+    public void TC_01_Rename_Switch_01_With_15_Charaters(){
         settingScreen.renameSwitch(switch1ButtonName,"switch 15 chars");
         settingScreen.isSwitchNameDisplayed("switch 15 chars");
         settingScreen.renameSwitch("switch 15 chars",switch1ButtonName);
         settingScreen.isSwitchNameDisplayed(switch1ButtonName);
     }
     @Test
-    public void Rename_Switch_02_With_25_Charaters(){
+    public void TC_02_Rename_Switch_02_With_25_Charaters(){
         settingScreen.renameSwitch(switch1ButtonName,"switch 15 charaterss name");
         settingScreen.isSwitchNameDisplayed("switch 15 charaterss name");
         settingScreen.renameSwitch("switch 15 charaterss name",switch1ButtonName);
         settingScreen.isSwitchNameDisplayed(switch1ButtonName);
     }
     @Test
-    public void Rename_Switch_03_With_26_Charaters(){
+    public void TC_03_Rename_Switch_03_With_26_Charaters(){
         settingScreen.renameSwitch(switch1ButtonName,"switch 15 charaterss names");
         settingScreen.isSwitchNameDisplayed("switch 15 charaterss name");
         settingScreen.renameSwitch("switch 15 charaterss name",switch1ButtonName);
@@ -64,14 +64,14 @@ public class Button_Setting extends BaseTest {
     }
 
     @Test
-    public void Rename_Switch_04_Cancel_Action(){
+    public void TC_04_Rename_Switch_04_Cancel_Action(){
         settingScreen.sendkeyToRenameSwitch(switch1ButtonName,"switch 15 charaterss names");
         settingScreen.cancelSaveNewNameSwitchBtn();
         settingScreen.isSwitchNameDisplayed(switch1ButtonName);
     }
 
     @Test
-    public void Rename_Button_01_With_15_Characters() {
+    public void TC_05_Rename_Button_01_With_15_Characters() {
         settingScreen.renameButton(s1BtnName,"button 15 chars");
         Assert.assertTrue(settingScreen.isButtonNameDisplayed("button 15 chars"));
 
@@ -79,7 +79,7 @@ public class Button_Setting extends BaseTest {
     }
 
     @Test
-    public void Rename_Button_02_With_25_Characters() {
+    public void TC_06_Rename_Button_02_With_25_Characters() {
         settingScreen.renameButton(s1BtnName,"button 25 charaterss name");
         Assert.assertTrue(settingScreen.isButtonNameDisplayed("button 25 charaterss name"));
 
@@ -87,7 +87,7 @@ public class Button_Setting extends BaseTest {
     }
 
    @Test
-    public void Rename_Button_03_With_26_Characters() {
+    public void TC_07_Rename_Button_03_With_26_Characters() {
         settingScreen.renameButton(s1BtnName,"button 25 charaterss names");
         Assert.assertTrue(settingScreen.isButtonNameDisplayed("button 25 charaterss name"));
 
@@ -95,7 +95,7 @@ public class Button_Setting extends BaseTest {
     }
 
     @Test
-    public void Label_01_Search_Label() {
+    public void TC_08_Label_01_Search_Label() {
         settingScreen.pressToButton(s1BtnName);
         addLabelScreen = settingScreen.clickToAddLabel();
         addLabelScreen.searchLabel("Đèn");
@@ -103,7 +103,7 @@ public class Button_Setting extends BaseTest {
     }
 
     @Test
-    public void Label_02_Add_Label() {
+    public void TC_09_Label_02_Add_Label() {
         addLabelScreen.addLabel("Đèn");
         addLabelScreen.clickSaveButton();
         settingScreen = addLabelScreen.clickToBackToSettingButton();
@@ -111,7 +111,7 @@ public class Button_Setting extends BaseTest {
     }
 
     @Test
-    public void Label_03_Remove_Label() {
+    public void TC_10_Label_03_Remove_Label() {
         addLabelScreen = settingScreen.clickToAddLabel();
         addLabelScreen.removeLabel("Đèn");
         addLabelScreen.clickSaveButton();

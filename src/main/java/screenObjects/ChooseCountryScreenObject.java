@@ -7,14 +7,14 @@ import io.appium.java_client.android.AndroidDriver;
 public class ChooseCountryScreenObject extends BaseScreen {
     AndroidDriver driver;
 
-    String continueButton = "//android.widget.Button[@content-desc='Tiếp tục']";
+    public static final String CONTINUE_BUTTON = "//android.widget.Button[@content-desc='Tiếp tục']";
 
     public ChooseCountryScreenObject(AndroidDriver driver){
         this.driver = driver;
     }
 
     public LoginScreenObject clickToContinueButton(){
-        clickToElement(driver,continueButton);
+        clickToElement(driver,CONTINUE_BUTTON);
         return ScreenGeneratorManager.getLoginScreen(driver);
     }
 

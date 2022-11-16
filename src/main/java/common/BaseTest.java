@@ -6,16 +6,15 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
-
 public class BaseTest {
     private AndroidDriver driver;
 
     protected AndroidDriver getDriver() throws MalformedURLException {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-        desiredCapabilities.setCapability("appium:appPackage", "com.karofi.k365.iotp.mobile.dev");
-        desiredCapabilities.setCapability("appium:appActivity", "com.karofi.k365.iotp.mobile.dev.MainActivity");
+        desiredCapabilities.setCapability("appium:appPackage", AppAndDeviceData.APP_PACKAGE);
+        desiredCapabilities.setCapability("appium:appActivity", AppAndDeviceData.APP_ACTIVITY);
         desiredCapabilities.setCapability("platformName", "Android");
-        desiredCapabilities.setCapability("appium:udid", "9PKNWG755XBQ65NR");
+        desiredCapabilities.setCapability("appium:udid", AppAndDeviceData.UDID);
         desiredCapabilities.setCapability("appium:automationName", "Appium");
         desiredCapabilities.setCapability("appium:ensureWebviewsHavePages", true);
         desiredCapabilities.setCapability("appium:nativeWebScreenshot", true);
