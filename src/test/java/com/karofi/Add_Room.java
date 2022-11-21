@@ -67,9 +67,10 @@ public class Add_Room extends BaseTest {
         settingScreen = detailSettingScreen.backToSettingScreen();
         homeScreen = settingScreen.backToHomeBySwitchName(switch1ButtonName);
         homeScreen.switchToRoomTab();
+        homeScreen.scrollToRoomByName(newRoomName);
         Assert.assertTrue(homeScreen.isRoomDisplayedByName(newRoomName));
         homeScreen.clickToRoomByName(newRoomName);
-        // đang bị che chờ tìm hiểu cách scroll trên mobile
+        homeScreen.scrollToSwitchByName(switch1ButtonName);
         Assert.assertTrue(homeScreen.isAddedRoomSwitchDisplayed(newRoomName,switch1ButtonName));
     }
 

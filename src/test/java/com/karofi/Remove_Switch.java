@@ -19,6 +19,7 @@ public class Remove_Switch extends BaseTest {
     private ChooseCountryScreenObject chooseCountryScreen;
     private HomeScreenObject homeScreen;
     private SettingScreenObject settingScreen;
+    private DetailSettingScreenObject detailSettingScreen;
     private String phoneNumber, password, switch1ButtonName;
 
     @BeforeTest
@@ -40,8 +41,9 @@ public class Remove_Switch extends BaseTest {
     }
     @Test
     public void Remove_Switch_01_Cancel_Action_Remove(){
-        settingScreen.clickToSettingBtnBySwitchName(switch1ButtonName);
-        settingScreen.cancelRemoveSwitch();
+        detailSettingScreen = settingScreen.clickToSettingBtnBySwitchName(switch1ButtonName);
+        detailSettingScreen.cancelRemoveSwitch();
+        settingScreen = detailSettingScreen.backToSettingScreen();
         homeScreen = settingScreen.backToHomeBySwitchName(switch1ButtonName);
         Assert.assertTrue(homeScreen.isSwitchDisplayedByName(switch1ButtonName));
         settingScreen = homeScreen.chooseDevice(switch1ButtonName);
@@ -49,8 +51,8 @@ public class Remove_Switch extends BaseTest {
 
     @Test
     public void Remove_Switch_02_Accept_Action_Remove(){
-        settingScreen.clickToSettingBtnBySwitchName(switch1ButtonName);
-        homeScreen = settingScreen.clickRemoveSwitch();
+        detailSettingScreen = settingScreen.clickToSettingBtnBySwitchName(switch1ButtonName);
+        homeScreen = detailSettingScreen.clickRemoveSwitch();
         Assert.assertFalse(homeScreen.isSwitchDisplayedByName(switch1ButtonName));
     }
 

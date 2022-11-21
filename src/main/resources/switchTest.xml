@@ -2,13 +2,17 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Karofi - Switch">
 
+
     <test name="Run on Android">
         <classes>
-<!--            <class name="com.karofi.Login" />-->
-<!--            <class name="com.karofi.Button_Setting" />-->
-<!--            <class name="com.karofi.Add_Favourite" />-->
+<!--
+            <class name="com.karofi.Login" />
+            <class name="com.karofi.Button_Setting" />
+            <class name="com.karofi.Add_Favourite" />
+            <class name="com.karofi.Remove_Switch" />
+-->
             <class name="com.karofi.Add_Room" />
-<!--            <class name="com.karofi.Remove_Switch" />-->
+
         </classes>
 <!--            <packages>-->
 <!--                <package name="com.karofi"></package>-->

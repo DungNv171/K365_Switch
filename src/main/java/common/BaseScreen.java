@@ -95,7 +95,11 @@ public class BaseScreen {
         driver.pressKey(new KeyEvent(AndroidKey.ENTER));
     }
 
-    public void scrollAndClick(AndroidDriver driver, String locater){
-        new TouchActions(driver).scroll(getWebElement(driver,locater), 10, 100).perform();
+    public void scrollAndClick(AndroidDriver driver, String visibleText) {
+        try {
+            driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().descriptionContains(\"" + visibleText + "\").instance(0))");
+        } catch (Exception e) {
+            throw new NoSuchElementException("No element" + e);
+        }
     }
 }

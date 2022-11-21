@@ -43,6 +43,14 @@ public class HomeScreenObject extends BaseScreen {
         return isElementDisplayed(driver,DYNAMIC_ROOM_BY_UPPERCASE_NAME,roomName.toUpperCase());
     }
 
+    public void scrollToRoomByName(String roomName){
+        scrollAndClick(driver,roomName.toUpperCase());
+    }
+
+    public void scrollToSwitchByName(String switchName){
+        scrollAndClick(driver,"Chào");
+        scrollAndClick(driver,switchName);
+    }
 
     public void clickToRoomByName(String roomName) {
         clickToElement(driver,DYNAMIC_ROOM_BY_UPPERCASE_NAME,roomName.toUpperCase());

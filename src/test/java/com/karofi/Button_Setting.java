@@ -111,7 +111,15 @@ public class Button_Setting extends BaseTest {
     }
 
     @Test
-    public void TC_10_Label_03_Remove_Label() {
+    public void TC_10_Label_03_Change_Label() {
+        addLabelScreen.addLabel("Tivi");
+        addLabelScreen.clickSaveButton();
+        settingScreen = addLabelScreen.clickToBackToSettingButton();
+        settingScreen.isLabelAdded("Tivi");
+    }
+
+    @Test
+    public void TC_11_Label_04_Remove_Label() {
         addLabelScreen = settingScreen.clickToAddLabel();
         addLabelScreen.removeLabel("Đèn");
         addLabelScreen.clickSaveButton();

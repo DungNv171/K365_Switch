@@ -22,9 +22,6 @@ public class SettingScreenObject extends BaseScreen {
             "Tên công tắc\"]/android.view.View[1]/android.widget.EditText";
     String DYNAMIC_SETTING_BTN_BY_NAME = "//android.view.View[@content-desc=\"%s\"]/parent::android.view.View/parent::android.view.View/following-sibling::android.widget.ImageView";
     String DYNAMIC_BACK_TO_HOME_BY_SWITCH_NAME = "//android.view.View[@content-desc=\"%s\"]/parent::android.view.View/parent::android.view.View//preceding-sibling::android.widget.Button";
-    String REMOVE_SWITCH_BTN = "//android.view.View[@content-desc=\"Gỡ bỏ công tắc\"]";
-    String CANCEL_ACTION_REMOVE = "//android.view.View[@content-desc=\"Bạn có chắc chắn muốn gỡ thiết bị ra khỏi tài khoản\"]/android.view.View[@content-desc=\"Hủy\"]";
-    String ACCEPT_ACTION_REMOVE = "//android.view.View[@content-desc=\"Bạn có chắc chắn muốn gỡ thiết bị ra khỏi tài khoản\"]/android.view.View[@content-desc=\"Chấp nhận\"]";
     public SettingScreenObject(AndroidDriver driver){
         this.driver = driver;
     }
@@ -95,24 +92,5 @@ public class SettingScreenObject extends BaseScreen {
         return ScreenGeneratorManager.getHomeScreen(driver);
     }
 
-    public HomeScreenObject clickRemoveSwitch() {
-        scrollAndClick(driver,"//android.view.View[@content-desc=\"Gắn phòng\"]");
-        clickToElement(driver,REMOVE_SWITCH_BTN);
-        clickToAcceptActionRemove();
-        return ScreenGeneratorManager.getHomeScreen(driver);
-    }
-    public void cancelRemoveSwitch(){
-        scrollAndClick(driver,"//android.view.View[@content-desc=\"Gắn phòng\"]");
-        clickToElement(driver,REMOVE_SWITCH_BTN);
-        clickToCancelActionRemove();
-    }
 
-
-    public void clickToCancelActionRemove(){
-        clickToElement(driver,CANCEL_ACTION_REMOVE);
-    }
-
-    public void clickToAcceptActionRemove(){
-        clickToElement(driver,ACCEPT_ACTION_REMOVE);
-    }
 }
