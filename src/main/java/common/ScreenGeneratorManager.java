@@ -44,4 +44,11 @@ public class ScreenGeneratorManager {
         return new RoomManageScreenObject(driver);
     }
 
+    public static ChangeWifiScreenObject getChangeWifiScreen(AndroidDriver driver) {
+        return new ChangeWifiScreenObject(driver);
+    }
+    public static SettingWifiScreenObject getSettingWifiScreen(AndroidDriver driver) {
+        return new SettingWifiScreenObject(driver);
+    }
+
 }

@@ -43,9 +43,10 @@ public class Add_Favourite extends BaseTest {
     public void Add_Favourite_01_Add(){
         detailSettingScreen = settingScreen.clickToSettingBtnBySwitchName(switch1ButtonName);
         detailSettingScreen.clickToAddToFavouriteIcon();
+        sleepInSecond(3);
         settingScreen = detailSettingScreen.backToSettingScreen();
         homeScreen = settingScreen.backToHomeBySwitchName(switch1ButtonName);
-        sleepInSecond(7);
+        sleepInSecond(5);
         Assert.assertTrue(homeScreen.isFavouriteSwitchDisplayByName(switch1ButtonName));
         settingScreen = homeScreen.chooseDevice(switch1ButtonName);
     }
@@ -54,9 +55,10 @@ public class Add_Favourite extends BaseTest {
     public void Add_Favourite_02_Remove(){
         detailSettingScreen = settingScreen.clickToSettingBtnBySwitchName(switch1ButtonName);
         detailSettingScreen.clickToAddToFavouriteIcon();
+        sleepInSecond(3);
         settingScreen = detailSettingScreen.backToSettingScreen();
         homeScreen = settingScreen.backToHomeBySwitchName(switch1ButtonName);
-        sleepInSecond(7);
+        sleepInSecond(5);
         Assert.assertFalse(homeScreen.isFavouriteSwitchDisplayByName(switch1ButtonName));
         settingScreen = homeScreen.chooseDevice(switch1ButtonName);
     }

@@ -34,7 +34,7 @@ public class Add_Room extends BaseTest {
         phoneNumber = LoginData.PHONE_NUMBER;
         password = LoginData.PASSWORD;
         switch1ButtonName = SwitchData.SWITCH_1_BUTTON_NAME;
-        newRoomName = "test room";
+        newRoomName = "a new room";
         houseName = SwitchData.HOUSE_NAME;
 
         //Pre-Conditions
@@ -48,7 +48,8 @@ public class Add_Room extends BaseTest {
     @Test
     public void Add_Room_01_Create_Room(){
         detailSettingScreen = settingScreen.clickToSettingBtnBySwitchName(switch1ButtonName);
-        addRoomScreen = detailSettingScreen.openAddRoomScreen();
+        detailSettingScreen.clickToNavigateByNameScreen(driver,"Gắn phòng");
+        addRoomScreen = ScreenGeneratorManager.getAddRoomScreen(driver);
         addRoomScreen.clickAddRoomIcon();
         addRoomScreen.sendkeyToAddRoomTextBox(newRoomName);
         addRoomScreen.saveRoom();
@@ -69,6 +70,7 @@ public class Add_Room extends BaseTest {
         homeScreen.switchToRoomTab();
         homeScreen.scrollToRoomByName(newRoomName);
         Assert.assertTrue(homeScreen.isRoomDisplayedByName(newRoomName));
+        //bị lỗi ko kéo xuống được đến công tắc nên hiện tại khi test case này phải đặt room lên đầu hoặc xóa phòng đi
         homeScreen.clickToRoomByName(newRoomName);
         homeScreen.scrollToSwitchByName(switch1ButtonName);
         Assert.assertTrue(homeScreen.isAddedRoomSwitchDisplayed(newRoomName,switch1ButtonName));

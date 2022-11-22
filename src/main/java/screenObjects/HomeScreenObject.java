@@ -3,7 +3,6 @@ package screenObjects;
 import common.BaseScreen;
 import common.ScreenGeneratorManager;
 import io.appium.java_client.android.AndroidDriver;
-import org.openqa.selenium.By;
 
 public class HomeScreenObject extends BaseScreen {
     AndroidDriver driver;
@@ -12,7 +11,7 @@ public class HomeScreenObject extends BaseScreen {
     public static final String FAVOURITE_SWITCH_BY_NAME = "//android.view.View[@content-desc=\"YÊU THÍCH\"]//android.widget.Button[contains(@content-desc,\"%s\")]";
     public static final String DYNAMIC_ROOM_BY_UPPERCASE_NAME = "//android.view.View[contains(@content-desc,'%s')]";
     public static final String ROOM_TAB = "//android.view.View[contains(@content-desc,'PHÒNG')]";
-    public static final String DYNAMIC_DEVICE_IN_ROOM_BY_ROOM_NAME_AND_DEVICE_NAME = "//android.view.View[contains(@content-desc,'%s')]//android.view.View[@content-desc=\"%s\"]";
+    public static final String DYNAMIC_DEVICE_IN_ROOM_BY_ROOM_NAME_AND_DEVICE_NAME = "//android.view.View[contains(@content-desc,'%s')]//android.view.View[@content-desc='%s']";
     public static final String PERSIONAL_SETTING = "//android.widget.ImageView[contains(@content-desc,'Cá nhân')]";
     public HomeScreenObject(AndroidDriver driver){
         this.driver = driver;
@@ -44,12 +43,11 @@ public class HomeScreenObject extends BaseScreen {
     }
 
     public void scrollToRoomByName(String roomName){
-        scrollAndClick(driver,roomName.toUpperCase());
+        scrollToElementByText(driver,roomName.toUpperCase());
     }
 
     public void scrollToSwitchByName(String switchName){
-        scrollAndClick(driver,"Chào");
-        scrollAndClick(driver,switchName);
+        scrollToElementByText(driver,switchName);
     }
 
     public void clickToRoomByName(String roomName) {
@@ -57,7 +55,7 @@ public class HomeScreenObject extends BaseScreen {
     }
 
     public boolean isAddedRoomSwitchDisplayed(String roomName, String switchName) {
-        return isElementDisplayed(driver,DYNAMIC_DEVICE_IN_ROOM_BY_ROOM_NAME_AND_DEVICE_NAME,roomName,switchName);
+        return isElementDisplayed(driver,DYNAMIC_DEVICE_IN_ROOM_BY_ROOM_NAME_AND_DEVICE_NAME,roomName.toUpperCase(),switchName);
     }
 
     public PersonalScreenObject clickToPersonalScreen() {

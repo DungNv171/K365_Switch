@@ -12,7 +12,7 @@ public class DetailSettingScreenObject extends BaseScreen {
 
     public static final String ADD_TO_FAVOURITE_ICON = "//android.view.View[@content-desc=\"Thêm vào yêu thích\"]//following-sibling::android.view.View[1]";
     public static final String BACK_TO_SETTING_SCREEN_BTN = "//android.view.View[@content-desc=\"Cài đặt công tắc\"]//preceding-sibling::android.widget.Button";
-    public static final String ADD_ROOM_SCREEN = "//android.view.View[@content-desc=\"Gắn phòng\"]";
+//    public static final String ADD_ROOM_SCREEN = "//android.view.View[@content-desc=\"Gắn phòng\"]";
     public DetailSettingScreenObject(AndroidDriver driver){
         this.driver = driver;
     }
@@ -26,19 +26,19 @@ public class DetailSettingScreenObject extends BaseScreen {
         return ScreenGeneratorManager.getSettingScreen(driver);
     }
 
-    public AddRoomScreenObject openAddRoomScreen() {
-        clickToElement(driver,ADD_ROOM_SCREEN);
-        return ScreenGeneratorManager.getAddRoomScreen(driver);
-    }
+//    public AddRoomScreenObject openAddRoomScreen() {
+//        clickToElement(driver,ADD_ROOM_SCREEN);
+//        return ScreenGeneratorManager.getAddRoomScreen(driver);
+//    }
 
     public HomeScreenObject clickRemoveSwitch() {
-        scrollAndClick(driver,"Gỡ bỏ công tắc");
+        scrollToElementByText(driver,"Gỡ bỏ công tắc");
         clickToElement(driver,REMOVE_SWITCH_BTN);
         clickToAcceptActionRemove();
         return ScreenGeneratorManager.getHomeScreen(driver);
     }
     public void cancelRemoveSwitch(){
-        scrollAndClick(driver,"Gỡ bỏ công tắc");
+        scrollToElementByText(driver,"Gỡ bỏ công tắc");
         clickToElement(driver,REMOVE_SWITCH_BTN);
         clickToCancelActionRemove();
     }
