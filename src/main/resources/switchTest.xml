@@ -5,18 +5,17 @@
 
     <test name="Run on Android">
         <classes>
-<!--
-            <class name="com.karofi.Login" />
-            <class name="com.karofi.Button_Setting" />
-            <class name="com.karofi.Remove_Switch" />
-            <class name="com.karofi.Add_Favourite" />
-            <class name="com.karofi.Add_Room" />
--->
-            <class name="com.karofi.Change_Wifi" />
+<!--            <class name="com.karofi.Login" />-->
+<!--            <class name="com.karofi.Button_Setting" />-->
+<!--            <class name="com.karofi.Y_Remove_Switch" />-->
+<!--            <class name="com.karofi.Add_Favourite" />-->
+<!--            <class name="com.karofi.Add_Room" />-->
+<!--            <class name="com.karofi.Change_Wifi" />-->
+            <class name="com.karofi.Click_Btn_Test" />
+
+
         </classes>
-<!--            <packages>-->
-<!--                <package name="com.karofi"></package>-->
-<!--            </packages>-->
+
     </test>
 
 

@@ -92,5 +92,19 @@ public class SettingScreenObject extends BaseScreen {
         return ScreenGeneratorManager.getHomeScreen(driver);
     }
 
+    public void clickBtn(int time, String btnName){
+        for(int i = 0; i< time; i++){
+            clickToElement(driver,DYNAMIC_BUTTON_BY_NAME, btnName);
+            sleepInSecond(500);
+        }
+    }
+
+    public void sleepInSecond(long milisecond){
+        try {
+            Thread.sleep(milisecond);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }

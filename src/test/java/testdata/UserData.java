@@ -2,8 +2,8 @@ package testdata;
 
 public class UserData {
     public class LoginData{
-        public static final String PHONE_NUMBER = "0358429133";
-        public static final String PASSWORD = "abc123";
+        public static final String PHONE_NUMBER = "0378608231";
+        public static final String PASSWORD = "aqws1234";
     }
 
     public class SwitchData{
@@ -11,7 +11,7 @@ public class UserData {
         public static final String HOUSE_NAME = "Nhà Của Tôi";
 
         //        Switch-Hiz-Beta 1 button
-        public static final String SWITCH_1_BUTTON_NAME = "1 nút";
+        public static final String SWITCH_1_BUTTON_NAME = "1 button";
         public static final String S1_BTN_NAME = "den pk";
 
         //        Switch-Hiz-Beta 4 button

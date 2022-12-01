@@ -13,14 +13,14 @@ import testdata.UserData.SwitchData;
 
 import java.net.MalformedURLException;
 
-public class Remove_Switch extends BaseTest {
+public class Click_Btn_Test extends BaseTest {
     private AndroidDriver driver;
     private LoginScreenObject loginScreen;
     private ChooseCountryScreenObject chooseCountryScreen;
     private HomeScreenObject homeScreen;
     private SettingScreenObject settingScreen;
     private DetailSettingScreenObject detailSettingScreen;
-    private String phoneNumber, password, switch1ButtonName;
+    private String phoneNumber, password, switch1ButtonName, btnName;
 
     @BeforeTest
     public void beforeTest() throws MalformedURLException {
@@ -30,6 +30,7 @@ public class Remove_Switch extends BaseTest {
         phoneNumber = LoginData.PHONE_NUMBER;
         password = LoginData.PASSWORD;
         switch1ButtonName = SwitchData.SWITCH_1_BUTTON_NAME;
+        btnName = SwitchData.S1_BTN_NAME;
 
         //Pre-Conditions
         loginScreen = chooseCountryScreen.clickToContinueButton();
@@ -40,21 +41,10 @@ public class Remove_Switch extends BaseTest {
         settingScreen = homeScreen.chooseDevice(switch1ButtonName);
     }
     @Test
-    public void Remove_Switch_01_Cancel_Action_Remove(){
-        detailSettingScreen = settingScreen.clickToSettingBtnBySwitchName(switch1ButtonName);
-        detailSettingScreen.cancelRemoveSwitch();
-        settingScreen = detailSettingScreen.backToSettingScreen();
-        homeScreen = settingScreen.backToHomeBySwitchName(switch1ButtonName);
-        Assert.assertTrue(homeScreen.isSwitchDisplayedByName(switch1ButtonName));
-        settingScreen = homeScreen.chooseDevice(switch1ButtonName);
+    public void Click_Btn_Test_N_Times(){
+        settingScreen.clickBtn(10, btnName);
     }
 
-    @Test
-    public void Remove_Switch_02_Accept_Action_Remove(){
-        detailSettingScreen = settingScreen.clickToSettingBtnBySwitchName(switch1ButtonName);
-        homeScreen = detailSettingScreen.clickRemoveSwitch();
-        Assert.assertFalse(homeScreen.isSwitchDisplayedByName(switch1ButtonName));
-    }
 
     @AfterTest
     public void afterTest() {
